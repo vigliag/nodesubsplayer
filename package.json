@@ -1,0 +1,9 @@
+{
+  "name": "nodesubsplayer",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.4.3",
+    "hjs": "*"
+  }
+}

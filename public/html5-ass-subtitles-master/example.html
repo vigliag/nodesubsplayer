@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="assparser_utils.js" type="text/javascript"></script>
+		<script src="assparser.js" type="text/javascript"></script>
+		<script src="example.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			function videoTimeUpdate(){
+				ASSCaptionsUpdate();
+			}
+			
+			window.onload = function(){
+				prepareCaptions();
+				fetchASSFile("example.ass");
+			}
+		</script>
+		<link rel="stylesheet" type="text/css" href="example.css">
+		<title>HTML5 Video ASS Parser Test Streaming</title>
+	</head>
+	<body bgcolor="#eeeeee">
+		<div id='container'>
+			<video width="704" height="460" controls autoplay ontimeupdate="videoTimeUpdate()">
+				<source src="example.mp4" type="video/mp4" />
+				<source src="example.ogv" type="video/ogg" />
+			</video>
+		</div>
+		<BR><BR>
+		<div id='info-box'><ul>
+			<li>HTML5 only! Google Chrome only plays the H264 MP4, Chromium doesn't!</li>
+			<li>Google Chrome and Chromium can't streaming OGG-Theora streams. It'll have to finish loading first.</li>
+			<li>Google Chrome 11 sucks, it keeps lagging on javascript &lt;div&gt; creations, use Beta or Dev channel instead.</li>
+			<li>CSS/2.0 &amp; 3.0 don't provide any commands to scale text and letters (affected tags: \fscx, \fscy)</li>
+			<li>Commands which depend on a timer aren't implemented yet. (affected tags: \t, \fad, \move)</li>
+			<li><b>Currently working commands: \pos (semi-broken), \1c/\c, \3c, \b0/1, \u0/1, \s0/1, \i0/1, \beX</b></li>
+		</ul></div>
+	</body>
+</html>
